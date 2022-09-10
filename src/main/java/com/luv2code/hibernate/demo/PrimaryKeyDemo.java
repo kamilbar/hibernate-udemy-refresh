@@ -22,7 +22,7 @@ public class PrimaryKeyDemo {
             System.out.println("Creating 3 student objects...");
             Student student1 = new Student("Mieczyslaw", "Nieprowokuj", "another@mail.com");
             Student student2 = new Student("Someone", "New", "yetanother@mail.com");
-            Student student3 = new Student("Another", "One", "anotherone@mail.com");
+            Student student3 = new Student("Another", "One", "anotherone@gmail.com");
 
             session.beginTransaction();
             session.save(student1);
