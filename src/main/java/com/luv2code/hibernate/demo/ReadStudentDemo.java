@@ -14,7 +14,7 @@ public class ReadStudentDemo {
                 .addAnnotatedClass(Student.class)
                 .buildSessionFactory();
 
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
 
         try {
             System.out.println("Creating new student object...");
@@ -32,11 +32,11 @@ public class ReadStudentDemo {
             System.out.println("Saved student. Generated id: " + student.getId());
 
             // now get a new session and start transaction
-            session = sessionFactory.openSession();
+            session = sessionFactory.getCurrentSession();
             session.beginTransaction();
 
             // retrieve student based on the id: primary key
-            System.out.println("\nGetting stuent with id: " + student.getId());
+            System.out.println("\nGetting student with id: " + student.getId());
 
             Student myStudent = session.get(Student.class, student.getId());
             System.out.println("Get complete: " + myStudent);
@@ -44,10 +44,11 @@ public class ReadStudentDemo {
             // commit the transaction
             session.getTransaction().commit();
 
-            System.out.println("done!");
+            System.out.println("Done!");
 
         } finally{
             session.close();
         }
+
     }
 }
